@@ -41,5 +41,19 @@ def ricerca_binaria_non_ricorsiva(oggetto: list, obiettivo):
             inizio = mid + 1
 
 
-lista: list = [0, 2, 4, 6, 9]
-print(ricerca_binaria_non_ricorsiva(lista, 2))
+# Risolve il problema della torre di Hanoi
+def hanoi(source: list, aux, dest, n):
+    if n == 0:
+        return
+
+    hanoi(source, dest, aux, n - 1)
+    disk = source.pop()
+    print("Sposto %s." % (disk))
+    dest.append(disk)
+    hanoi(aux, source, dest, n - 1)
+
+
+h = [4, 3, 2, 1]
+d = []
+
+hanoi(h, [], d, len(h))
